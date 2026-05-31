@@ -1,4 +1,5 @@
 const wppconnect = require("@wppconnect-team/wppconnect");
+const QRCode = require("qrcode");
 
 let client;
 let whatsappState = null;
@@ -95,9 +96,13 @@ const initializeWhatsApp = async () => {
       autoCloseChat: false,
       statusFind: false,
       logQR: false,
-      catchQR: (base64Qr, asciiQR) => {
-        console.log("SCAN THIS QR:");
-        console.log(asciiQR);
+      catchQR: async (base64Qr, asciiQR) => {
+        console.log("QR RECEIVED");
+        await QRCode.toFile(
+          "./public-qr.png",
+          base64Qr.replace(/^data:image\/png;base64,/, "")
+        );
+        console.log("QR IMAGE GENERATED");
       },
       disableSpins: true,
       disableWelcome: true,
