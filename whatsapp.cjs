@@ -95,7 +95,10 @@ const initializeWhatsApp = async () => {
       autoCloseChat: false,
       statusFind: false,
       logQR: false,
-      catchQR: true,
+      catchQR: (base64Qr, asciiQR) => {
+        console.log("SCAN THIS QR:");
+        console.log(asciiQR);
+      },
       disableSpins: true,
       disableWelcome: true,
       autoClose: false,
