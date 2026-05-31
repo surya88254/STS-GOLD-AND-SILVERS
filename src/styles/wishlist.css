@@ -1,0 +1,143 @@
+/* WISHLIST PAGE */
+
+.wishlist-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 50px 30px 80px;
+}
+
+.wishlist-title {
+  text-align: center;
+  color: #ffd54a;
+  font-size: clamp(3rem, 6vw, 4rem);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* GRID FIX */
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+
+.wishlist-card {
+  background: rgba(10, 10, 10, 0.96);
+  border: 1px solid rgba(255, 215, 0, 0.16);
+  border-radius: 28px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.wishlist-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 215, 0, 0.35);
+}
+
+/* IMAGE */
+
+.wishlist-card img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* DETAILS */
+
+.wishlist-info {
+  text-align: center;
+  width: 100%;
+}
+
+.wishlist-info h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.wishlist-price {
+  color: #ffd54a;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 10px 0 4px;
+}
+
+.wishlist-weight {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
+}
+
+/* BUTTON AREA */
+
+.wishlist-actions {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.wishlist-actions button {
+  padding: 14px 26px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wishlist-actions button:hover {
+  transform: translateY(-2px);
+}
+
+/* VIEW BUTTON */
+
+.view-btn {
+  background: linear-gradient(135deg, #ffd760, #d4af37);
+  color: #050505;
+}
+
+.view-btn:hover {
+  box-shadow: 0 16px 30px rgba(255, 191, 64, 0.28);
+}
+
+/* REMOVE BUTTON */
+
+.remove-btn {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  border: 1px solid rgba(255, 215, 0, 0.18);
+}
+
+.remove-btn:hover {
+  background: rgba(179, 0, 0, 0.9);
+  border-color: rgba(255, 68, 68, 0.75);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .wishlist-title {
+    font-size: 2.8rem;
+  }
+
+  .wishlist-card img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .wishlist-actions {
+    flex-direction: column;
+  }
+}

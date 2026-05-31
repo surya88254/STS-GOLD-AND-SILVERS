@@ -1,0 +1,14 @@
+{
+  "customer_name": "TEST USER",
+  "customer_email": "test@example.com",
+  "phone": "9999999999",
+  "address": "Test Address",
+  "city": "Test City",
+  "pincode": "123456",
+  "product_name": "Test Product",
+  "category": "Gold",
+  "weight": 10,
+  "quantity": 1,
+  "final_total": 1000,
+  "payment_method": "COD"
+}
