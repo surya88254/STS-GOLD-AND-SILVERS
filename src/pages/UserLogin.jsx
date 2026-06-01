@@ -64,8 +64,9 @@ function UserLogin() {
 
           <label>
             Password
-            <div className="password-field">
+            <div className="password-container">
               <input
+                className="password-input"
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

@@ -1029,6 +1029,48 @@ body {
   color: var(--text-secondary);
 }
 
+/* TABLE MOBILE FIX */
+
+.inventory-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.inventory-table{
+    width:100%;
+    min-width:900px; /* keeps columns horizontal */
+    border-collapse:collapse;
+}
+
+.inventory-table th,
+.inventory-table td{
+
+    white-space:nowrap !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+
+    text-align:center;
+    padding:14px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+  .inventory-table{
+      min-width:850px;
+  }
+
+  .inventory-table th,
+  .inventory-table td{
+
+      font-size:14px;
+      white-space:nowrap !important;
+  }
+
+}
+
 /* ===== ORDERS TABLE (Premium Black + Gold) ===== */
 .orders-table {
   width: 100%;
@@ -1794,10 +1836,5 @@ button{
 
   h1,h2,h3{
       font-size:clamp(18px,5vw,30px);
-      word-break:break-word;
-  }
-
-  button{
-      width:100%;
   }
 }

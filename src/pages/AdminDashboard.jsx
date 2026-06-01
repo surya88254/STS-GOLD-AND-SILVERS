@@ -1256,8 +1256,8 @@ function AdminDashboard(){
             </div>
 
             {products.length > 0 ? (
-              <div className="products-table-wrapper">
-                <table className="products-table">
+              <div className="products-table-wrapper inventory-table-wrapper">
+                <table className="products-table inventory-table">
                   <thead>
                     <tr>
                       <th>Image</th>

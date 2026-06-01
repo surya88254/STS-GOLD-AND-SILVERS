@@ -170,18 +170,46 @@
   color: var(--text-secondary);
 }
 
-.toggle-password {
+/* PASSWORD FIX */
+
+.password-container{
+  position: relative;
+  width: 100%;
+}
+
+.password-input{
+  width: 100%;
+  padding: 16px 80px 16px 18px !important;
+}
+
+.toggle-password{
   position: absolute;
-  right: 16px;
+  right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  color: var(--text-secondary);
-  font-weight: 700;
-  cursor: pointer;
-  padding: 6px 8px;
-  border-radius: 999px;
+
+  background:none;
+  border:none;
+
+  color:#e5c24b;
+  font-weight:600;
+  font-size:14px;
+
+  cursor:pointer;
+  z-index:10;
+
+  width:auto !important;
+  padding:0 !important;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .password-input{
+      padding-right:85px !important;
+  }
+
 }
 
 .back-button {
@@ -252,7 +280,7 @@
   }
 
   .input-wrap input {
-    padding-right: 18px;
+    padding-right: 80px;
   }
 
   .toggle-password {

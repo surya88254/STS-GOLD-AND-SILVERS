@@ -90,20 +90,46 @@
   box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.08);
 }
 
-.password-field {
+/* PASSWORD FIX */
+
+.password-container{
   position: relative;
+  width: 100%;
 }
 
-.toggle-password {
+.password-input{
+  width: 100%;
+  padding: 16px 80px 16px 18px !important;
+}
+
+.toggle-password{
   position: absolute;
+  right: 18px;
   top: 50%;
-  right: 14px;
   transform: translateY(-50%);
+
+  background: none;
   border: none;
-  background: transparent;
-  color: var(--gold);
-  font-weight: 700;
+
+  color: #e5c24b;
+  font-weight: 600;
+  font-size: 14px;
+
   cursor: pointer;
+  z-index: 10;
+
+  width: auto !important;
+  padding: 0 !important;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .password-input{
+      padding-right:85px !important;
+  }
+
 }
 
 .photo-upload-label input[type="file"] {
