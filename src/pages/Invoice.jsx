@@ -88,7 +88,7 @@ const Invoice = () => {
             </div>
             {backgroundNotification && (
               <div style={{ marginTop: "14px", color: "#9aceff", fontSize: "0.84rem", lineHeight: 1.5 }}>
-                WhatsApp confirmation is being sent in the background. Your invoice is ready immediately.
+                Your invoice is ready. You can send order details via WhatsApp using the button below.
               </div>
             )}
           </div>

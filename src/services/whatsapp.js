@@ -1,3 +1,3 @@
-// Service wrapper to re-export Node-side WhatsApp sender.
-// Frontend imports this file path; be cautious—this module proxies to a Node-only module.
-export { sendOrderNotification } from "../../whatsapp.js";
+// WhatsApp service has been disabled - using Supabase notifications only
+// Backend WhatsApp integration removed
+// export { sendOrderNotification } from "../../whatsapp.js";

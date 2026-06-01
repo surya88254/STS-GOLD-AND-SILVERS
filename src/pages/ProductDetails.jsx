@@ -4,8 +4,6 @@ import Navbar from "../components/Navbar";
 import { supabase } from "../services/supabase";
 import "../styles/ProductDetails.css";
 
-const API = import.meta.env.VITE_BACKEND_URL;
-
 const parseWeightOptions = (weightText) => {
   if (!weightText || typeof weightText !== "string") return [1, 2, 5, 10];
   const matches = [...weightText.matchAll(/(\d+(?:\.\d+)?)(?=\s*g?)/gi)].map((match) => Number(match[1]));
@@ -266,16 +264,9 @@ function ProductDetails() {
       },
     });
 
-    setTimeout(() => {
-      sendOrderNotificationsInBackground(data);
-    }, 100);
-
     console.log("🚀 NAVIGATING TO INVOICE with order:", data);
-  }
 
-  const sendOrderNotificationsInBackground = async (order) => {
-    if (!order) return;
-
+    // Send notification to Supabase
     try {
       await supabase.from("notifications").insert([
         {
@@ -284,30 +275,11 @@ function ProductDetails() {
           is_read: false,
         },
       ]);
-    } catch (insertError) {
-      console.warn("⚠️ Background notification insert failed:", insertError);
+      console.log("✅ Notification stored in Supabase");
+    } catch (notificationError) {
+      console.warn("⚠️ Notification insert failed:", notificationError);
     }
-
-    try {
-      const response = await fetch(`${API}/send-order-notification`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(order),
-      });
-
-      if (!response.ok) {
-        console.warn("⚠️ WhatsApp background send responded with status", response.status);
-        return;
-      }
-
-      const result = await response.json();
-      console.log("✅ WhatsApp background send succeeded:", result);
-    } catch (whatsappError) {
-      console.error("❌ WhatsApp background send failed:", whatsappError);
-    }
-  };
+  }
 
   const downloadInvoice = () => {
     if (!product) return;
@@ -454,7 +426,7 @@ const submitReview = async () => {
         <div className="processing-overlay">
           <div className="processing-modal">
             <h3>Processing Your Order</h3>
-            <p>Your invoice will open immediately. WhatsApp notification is being sent in the background.</p>
+            <p>Your invoice will open immediately.</p>
             <div className="processing-spinner" />
           </div>
         </div>
